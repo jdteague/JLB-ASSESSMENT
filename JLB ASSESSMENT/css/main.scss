@@ -1,0 +1,398 @@
+/* Main.scss */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap');
+
+/*Custom properties, very similar to variables*/
+/*in this example we're using them to set a color scheme*/
+$colors: (
+    primary: #000,
+    secondary: #fff, 
+    accent: #de041c
+
+);
+
+$video-dimensions: (
+    width: 640px,
+    height: 360px
+);
+
+body, html {
+    height: 100%;
+}
+
+body {
+    
+    margin: 0; /*margins effect everything on the outside of the page*/
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: map-get($colors, secondary);
+    //justify-content: center;
+}
+
+@media only screen and (min-width: 320px) {
+
+        .hero {
+            text-align: center;
+            .container {
+                padding-top: 15em;
+                padding-bottom: 15em;
+                background: map-get($colors, secondary);
+                background-image: url("../Skills-Assessment-assets/HERO_1.jpg");
+                background-repeat: no-repeat;
+                //background-size: 100% 100%;
+                background-position: center center;
+            }
+        
+            .logo {
+        
+                h1 {
+                    text-transform: uppercase;
+                    letter-spacing: -2px;
+                    font-weight: 900;
+                    color: map-get($colors, accent);
+                    font-size: 3em;
+                    margin-bottom: -.35em;
+                    padding: 0;
+                }
+            
+                h2 {
+                    text-transform: uppercase;
+                    letter-spacing: -1px;
+                    font-weight: 900;
+                    color: map-get($colors, secondary);
+                    font-size: 1.785em;
+                    margin-top: 0;
+                    padding: 0;
+                }
+            }
+            
+        
+            p {
+                color: map-get($colors, secondary);
+                font-weight: 400;
+                text-align: center;
+                width: 25em;
+                margin-inline: auto;
+                margin-top: 0em;
+            }
+        
+        }
+
+    
+
+    .video-cta {
+        background: map-get($colors, accent);
+        height: 200%;
+
+        .container{
+            //background: blue;
+            display: flex;
+            justify-content: center;
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+
+        .vid-box {
+            background: map-get($colors, primary);
+            display: block;
+            width: map-get($video-dimensions, width) * .70;
+            height: map-get($video-dimensions, height) * .70;
+            box-shadow: 0em 0em 3em map-get($colors, primary);
+        }
+
+        video {
+            width: map-get($video-dimensions, width) * .70;
+            height: map-get($video-dimensions, height) * .70;
+        }
+
+        
+    }
+
+    .hero-lower {
+        .bg {
+            position: absolute;
+            background-image: url("../Skills-Assessment-assets/SPLASH_WATERMARK.png");
+            background-position: right bottom;
+            background-repeat: no-repeat;
+            height: 200%;
+            width: 100%;
+            opacity: .1;
+        }
+
+        .container {
+            margin-top: 0em;
+            padding-top: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            width: 100vw;
+            //margin-top:;
+        }
+
+        .collage-container {
+            display: flex;
+            width: 100vw;
+            gap: .6em .7em;
+        }
+
+        img {
+            margin: 0 auto;
+        }
+
+        .collage {
+            .img1 {
+                flex-grow: 1;
+            }
+
+            .img2 {
+                flex-grow: 1;
+            }
+
+            .img3 {
+                flex-grow: 1;
+                order: 2;
+            }
+
+            .img4 {
+                flex-shrink: 1;
+            }
+
+            .img5 {
+                flex-shrink: 1;
+            }
+        }
+
+        .pitch {
+            width: 90%;
+            text-align: bottom left;
+            margin-right: 1em;
+            margin-left: 1em;
+
+            .spacer {
+                width: 100%;
+                height: 30%;
+            }
+
+            h1 {
+                text-transform: uppercase;
+                font-weight: 900;
+                font-size: 1em;
+            }
+
+            h2 {
+                text-transform: uppercase;
+                margin-top: -.6em;
+                font-weight: 900;
+                font-size: 2em;
+                color:map-get($colors, accent);
+            }
+
+            .black-line {
+                background: map-get($colors, primary);
+                height: 3px;
+                width: 117%;
+                margin-right: -5em;
+            }
+
+            .red {
+                color:map-get($colors, accent);
+                font-weight: 900;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1920px) {
+
+    .hero {
+        text-align: center;
+        .container {
+            padding-top: 15em;
+            padding-bottom: 20em;
+            background: map-get($colors, secondary);
+            background-image: url("../Skills-Assessment-assets/HERO_1.jpg");
+            background-repeat: no-repeat;
+            //background-size: 100% 100%;
+            background-position: center center;
+        }
+
+        .logo {
+
+            h1 {
+                text-transform: uppercase;
+                letter-spacing: -2px;
+                font-weight: 900;
+                color: map-get($colors, accent);
+                font-size: 7em;
+                margin-bottom: -.35em;
+                padding: 0;
+            }
+        
+            h2 {
+                text-transform: uppercase;
+                letter-spacing: -1px;
+                font-weight: 900;
+                color: map-get($colors, secondary);
+                font-size: 4.165em;
+                margin-top: 0;
+                padding: 0;
+            }
+        }
+        
+
+        p {
+            color: map-get($colors, secondary);
+            font-weight: 400;
+            text-align: center;
+            width: 45em;
+            margin-inline: auto;
+            margin-top: -2em;
+        }
+
+    }
+
+    .video-cta {
+        background: map-get($colors, accent);
+        height: 5%;
+
+        .container{
+            //background: blue;
+            display: flex;
+            justify-content: center;
+            margin-top: -10em;
+        }
+
+        .vid-box {
+            background: map-get($colors, primary);
+            display: block;
+            width: map-get($video-dimensions, width);
+            height: map-get($video-dimensions, height);
+            box-shadow: 0em 0em 3em map-get($colors, primary);
+        }
+
+        video {
+            width: map-get($video-dimensions, width);
+            height: map-get($video-dimensions, height);
+        }
+
+        
+    }
+
+    .hero-lower {
+        .bg {
+            position: absolute;
+            background-image: url("../Skills-Assessment-assets/SPLASH_WATERMARK.png");
+            background-position: right bottom;
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100%;
+            opacity: .1;
+        }
+
+        .container {
+            margin-top: 5em;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100vw;
+            margin: 0 auto;
+            //margin-top:;
+        }
+
+        .collage-container {
+            margin-top: 2em;
+            display: flex;
+            height: 60%;
+            width: 60%;
+            margin-top: .7em;
+            gap: 12px;
+
+        }
+
+        .collage {
+
+            img {
+                margin: .2em;
+                margin-left: 0em;
+                margin-right: .4em;
+            }
+
+            .img1 {
+                //order: 1;
+                position: relative;
+                width: 53.7%;
+                height: 50%;
+                bottom: 3px;
+            }
+
+            .img4 {
+                width: 36.45%;
+                height: 325px;
+                //order: 2;
+            }
+
+            .img5 {
+                height: 325px;
+                width: 16.25%
+                //order: 3;
+            }
+
+            .img2 {
+                //order: 4;
+                position: relative;
+                height: 325px;
+                top: 70px;
+                left: 3px;
+            }
+
+            .img3 {
+                //order: 5;
+                position: relative;
+                bottom: 75px;
+                left: 3px;
+            }
+        }
+
+        .pitch {
+            flex: 1;
+            width: 90%;
+            text-align: bottom left;
+            margin-right: 8em;
+            margin-left: -2em;
+            gap: 1em 1em;
+
+            .spacer {
+                width: 100%;
+                height: 30%;
+            }
+
+            h1 {
+                text-transform: uppercase;
+                font-weight: 900;
+                font-size: 2em;
+            }
+
+            h2 {
+                text-transform: uppercase;
+                margin-top: -.6em;
+                font-weight: 900;
+                font-size: 3em;
+                color:map-get($colors, accent);
+            }
+
+            .black-line {
+                background: map-get($colors, primary);
+                height: 3px;
+                width: 117%;
+                margin-right: -5em;
+            }
+
+            .red {
+                color:map-get($colors, accent);
+                font-weight: 900;
+            }
+        }
+    }
+}
