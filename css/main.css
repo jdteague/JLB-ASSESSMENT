@@ -1,10 +1,14 @@
-/* Main.scss */
+/* main.scss */
+/* Coded by: Jarod Teague */
+/* 
+    NOTE: all modifications were tested only for the firefox browser, It has not been tested for others.
+*/
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap");
-/*Custom properties, very similar to variables*/
-/*in this example we're using them to set a color scheme*/
+/* color theme, the entire page's color scan be changed just by altering these values*/
+/* video can be resized, only really used within video-cta*/
 body {
   height: 100%;
-  margin: 0; /*margins effect everything on the outside of the page*/
+  margin: 0;
   font-family: "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
@@ -118,7 +122,6 @@ body {
   }
   .img-gallery .carousel-button {
     opacity: 0.2;
-    text-align: center;
     transition: 400ms opacity ease-in-out;
     color: rgb(255, 255, 255);
     position: absolute;
@@ -161,6 +164,10 @@ body {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(255, 255, 255) 100%);
     bottom: 0%;
   }
+  .hero-lower {
+    position: relative;
+    height: 900px;
+  }
   .hero-lower .bg {
     position: absolute;
     background-image: url("../Skills-Assessment-assets/SPLASH_WATERMARK.png");
@@ -169,6 +176,7 @@ body {
     height: 100%;
     width: 100%;
     opacity: 0.1;
+    top: 1em;
   }
   .hero-lower .container {
     margin-top: 0em;
@@ -180,34 +188,17 @@ body {
   }
   .hero-lower .collage-container {
     visibility: collapse;
-    display: flex;
-    width: 100vw;
-    gap: 0.6em 0.7em;
   }
   .hero-lower img {
     margin: 0 auto;
   }
-  .hero-lower .collage .img1 {
-    flex-grow: 1;
-  }
-  .hero-lower .collage .img2 {
-    flex-grow: 1;
-  }
-  .hero-lower .collage .img3 {
-    flex-grow: 1;
-    order: 2;
-  }
-  .hero-lower .collage .img4 {
-    flex-shrink: 1;
-  }
-  .hero-lower .collage .img5 {
-    flex-shrink: 1;
-  }
   .hero-lower .pitch {
+    position: absolute;
     width: 90%;
     text-align: bottom left;
     margin-right: 1em;
     margin-left: 1em;
+    top: 1em;
   }
   .hero-lower .pitch .spacer {
     width: 100%;
@@ -297,6 +288,7 @@ body {
   }
   .img-gallery {
     visibility: collapse;
+    height: 0px;
   }
   .hero-lower {
     position: relative;
@@ -306,11 +298,12 @@ body {
     background-image: url("../Skills-Assessment-assets/SPLASH_WATERMARK.png");
     background-position: right bottom;
     background-repeat: no-repeat;
-    height: 200%;
+    height: 100%;
     width: 100%;
     opacity: 0.1;
   }
   .hero-lower .container {
+    position: relative;
     margin-top: 5em;
     display: flex;
     flex-direction: row;
@@ -360,6 +353,7 @@ body {
     left: 7px;
   }
   .hero-lower .pitch {
+    position: relative;
     flex: 1;
     width: 90%;
     text-align: bottom left;

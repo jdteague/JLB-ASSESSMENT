@@ -1,25 +1,28 @@
-/* Main.scss */
+/* main.scss */
+/* Coded by: Jarod Teague */
+/* 
+    NOTE: all modifications were tested only for the firefox browser, It has not been tested for others.
+*/
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap');
 
-/*Custom properties, very similar to variables*/
-/*in this example we're using them to set a color scheme*/
+
+/* color theme, the entire page's color scan be changed just by altering these values*/
 $colors: (
     primary: #000,
     secondary: #fff, 
     accent: #de041c
-
 );
 
+/* video can be resized, only really used within video-cta*/
 $video-dimensions: (
     width: 680px,
     height: 360px
 );
 
-body {
-    
+body { 
     height: 100%;
-    margin: 0; /*margins effect everything on the outside of the page*/
+    margin: 0;
     font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
@@ -29,6 +32,9 @@ body {
 
 //I have taken a mobile first approach, the lowest resolution is catered to first and then the higher ones
 @media only screen and (min-width: 320px) {
+    // note: for the future, something I have noticed with this page, at lower browser resolutions, there is an excess amount of white space at the bottom.
+    // Dev mode on the browser hasn't revealed any divs or sections that extend down that far so I do not know what is causing it. It doesn't completely ruin the webpage, 
+    // nor does it appear on the 1920px browser mode, so it's been admittedly low on the priority list. But I am aware of it, and it needs to be fixed.
 
         .hero {
             text-align: center;
@@ -83,7 +89,6 @@ body {
         height: 200%;
 
         .container{
-            //background: blue;
             display: flex;
             justify-content: center;
             margin-top: 1em;
@@ -105,6 +110,8 @@ body {
 
         
     }
+
+    // only for mobile screens and anything less than 1920px resolutions
 
     .img-gallery {
         visibility: visible;
@@ -146,10 +153,7 @@ body {
 
         .slide > img {
             display: block;
-            //width: 100%;
-            //height: 100%;
             object-fit: contain;
-            //object-position: center;
             left: 50%;
             transform: translate(-50%, -50%);
             box-shadow: 0em 0em 6em map-get($colors, secondary);
@@ -162,7 +166,6 @@ body {
 
         .carousel-button {
             opacity: .2;
-            text-align: center;
             transition: 400ms opacity ease-in-out;
             color: rgba(red(map-get($colors, secondary)), green(map-get($colors, secondary)), blue(map-get($colors, secondary)), 1);
             position: absolute;
@@ -186,6 +189,8 @@ body {
             left: 1rem;
         }
 
+        // right button sticks out more to compensate for my Browser's scroll bar, may need to include a check for devices/browsers that do not 
+        // have scroll bars at all
         .carousel-button.next{
             right: 2rem;
         }
@@ -205,6 +210,8 @@ body {
             width: auto;
         }
 
+        // the dividing gradient, visually blends the two sections together (only on the smaller resolutions)
+
         .divider {
             position: absolute;
             width: 100%;
@@ -215,6 +222,12 @@ body {
     }
 
     .hero-lower {
+        position: relative;
+        // the firefox browser has not been responding well to percentage heights for some reason,
+        // google chrome doesn't care so this is primarily being done for this.
+        height: 900px;
+
+
         .bg {
             position: absolute;
             background-image: url("../Skills-Assessment-assets/SPLASH_WATERMARK.png");
@@ -223,6 +236,7 @@ body {
             height: 100%;
             width: 100%;
             opacity: .1;
+            top: 1em;
         }
 
         .container {
@@ -232,49 +246,24 @@ body {
             flex-direction: column;
             justify-content: space-evenly;
             width: 100vw;
-            //margin-top:;
         }
 
         .collage-container {
             visibility: collapse;
-            display: flex;
-            width: 100vw;
-            gap: .6em .7em;
         }
 
         img {
             margin: 0 auto;
         }
 
-        .collage {
-            .img1 {
-                flex-grow: 1;
-            }
-
-            .img2 {
-                flex-grow: 1;
-            }
-
-            .img3 {
-                flex-grow: 1;
-                order: 2;
-            }
-
-            .img4 {
-                flex-shrink: 1;
-            }
-
-            .img5 {
-                flex-shrink: 1;
-            }
-        }
-
         // this is the sales pitch/mission statement, hence the name
         .pitch {
+            position: absolute;
             width: 90%;
             text-align: bottom left;
             margin-right: 1em;
             margin-left: 1em;
+            top: 1em;
 
             .spacer {
                 width: 100%;
@@ -310,6 +299,10 @@ body {
     }
 
 }
+
+// this next section is a bit "hackey" I'm sure there are better and more elegant solutions out there, So the priority will be to keep the collage from
+// from falling apart when people scale up the browser window. For the most part it looks alright but it does lose it's position and structure with the current
+// set up and will need to be switched out asap.
 
 @media only screen and (min-width: 1920px) {
 
@@ -390,6 +383,7 @@ body {
 
     .img-gallery {
         visibility: collapse;
+        height: 0px;
     }
 
     .hero-lower {
@@ -399,20 +393,19 @@ body {
             background-image: url("../Skills-Assessment-assets/SPLASH_WATERMARK.png");
             background-position: right bottom;
             background-repeat: no-repeat;
-            height: 200%;
+            height: 100%;
             width: 100%;
             opacity: .1;
         }
 
         .container {
-            
+            position: relative;
             margin-top: 5em;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             width: 100vw;
             margin: 0 auto;
-            //margin-top:;
         }
 
         .collage-container {
@@ -435,7 +428,6 @@ body {
             }
 
             .img1 {
-                //order: 1;
                 position: relative;
                 width: 52%;
                 height: 50%;
@@ -447,17 +439,14 @@ body {
                 width: 35.45%;
                 height: 325px;
                 left: 4px;
-                //order: 2;
             }
 
             .img5 {
                 height: 325px;
                 width: 15.25%
-                //order: 3;
             }
 
             .img2 {
-                //order: 4;
                 position: relative;
                 height: 325px;
                 top: 50px;
@@ -465,7 +454,6 @@ body {
             }
 
             .img3 {
-                //order: 5;
                 position: relative;
                 bottom: 92px;
                 left: 7px;
@@ -473,6 +461,7 @@ body {
         }
 
         .pitch {
+            position: relative;
             flex: 1;
             width: 90%;
             text-align: bottom left;
